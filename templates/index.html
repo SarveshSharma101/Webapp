@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Webapp</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	<style type="text/css">
+
+			body {
+			  font-family: Arial;
+			  margin: 0;
+			  color: Black;
+			  background-color: #D6EFC7;
+			}
+
+		.Header {
+		  background: #184D47;
+		  color: white;
+		  font-size: 12px;
+
+		  padding: 8px
+		}
+
+		.Content {
+			padding: 8px
+			background-color: #D6EFC7;
+					
+		}
+		
+		
+	</style>
+</head>
+<body>
+
+	<div class = "Header">
+		<h1 style="font-weight:bold">My First Webapp!</h1>
+		<div class="d-flex flex-row bd-highlight mb-3">
+  			 
+  			
+
+				
+			<div class="d-flex flex-column bd-highlight mb-3" style="margin-top: 50px ; margin-right: 50px;margin-left: 50px">
+				<form action="/uploader", enctype="multipart/form-data"	 method="post">
+
+				
+				<input type="file" name="imgfile" > 
+				
+				<input type="submit" value="Pass the image through neural network" style="margin-top: 30px ; padding: 3px; background-color: cyan">
+			  <!-- <div class="p-2 bd-highlight">Flex item 1</div>
+			  <div class="p-2 bd-highlight">Flex item 2</div>
+			  <div class="p-2 bd-highlight">Flex item 3</div> -->
+
+			  </form>
+			</div>
+			
+  			
+
+  			<div class="d-flex flex-column bd-highlight mb-3" style="margin-top: 10px;margin-left: 50px;
+  			margin-right: 50px">
+				<img src="{{url_for('static', filename='path.png')}}"width="70" height="50">
+
+				<img src="{{url_for('static', filename='path.png')}}" width="70" height="50" style="margin-top: 10px">
+				<img src="{{url_for('static', filename='path.png')}} " width="70" height="50"style="margin-top: 10px">
+			  <!-- <div class="p-2 bd-highlight">Flex item 1</div>
+			  <div class="p-2 bd-highlight">Flex item 2</div>
+			  <div class="p-2 bd-highlight">Flex item 3</div> -->
+			</div>
+
+  				
+
+			<div class="d-flex flex-column bd-highlight mb-3" style="margin-top: 5px ; margin-right: 100px;margin-left: 50px">
+				
+
+				<img src="{{url_for('static', filename='images.png')}}" >
+				
+			  <!-- <div class="p-2 bd-highlight">Flex item 1</div>
+			  <div class="p-2 bd-highlight">Flex item 2</div>
+			  <div class="p-2 bd-highlight">Flex item 3</div> -->
+
+			  
+			</div>
+
+			<div class="d-flex flex-column bd-highlight mb-3" style=" margin-top: 50px ; margin-right: 50px">
+				<img src="{{url_for('static', filename='path.png')}}" width="70" height="50">
+
+			  <!-- <div class="p-2 bd-highlight">Flex item 1</div>
+			  <div class="p-2 bd-highlight">Flex item 2</div>
+			  <div class="p-2 bd-highlight">Flex item 3</div> -->
+			</div>
+			<div class="d-flex flex-column bd-highlight mb-3" style="margin-right: 80px;
+			margin-top: 0px" >
+
+				<div class="p-2 bd-highlight" style="height: 200px; width: 200px; background-color: #96BB7C; align-content: center;border-radius: 4px">
+
+				   	<img src="{{fname}}" height="190" width="190">
+
+				   	
+				</div>
+
+				<div  style="background-color: #EEBB4D;
+				height: 40px; width: 100px; font-size: 12; align-content:center; padding-left: 25px;padding-top: 5px; margin-top: 30px;border-radius: 2px"
+				>
+					<p style="font-size: 16px">{{result}}</p> 
+				</div>
+				 
+			</div>
+  				
+  			
+
+		</div>
+	</div>
+
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  	   	  <div class="carousel-inner" style="padding: 40px">
+	    <div class="carousel-item active">
+	      <!-- <img class="d-block w-100" src="1.png" alt="First slide"> -->
+	      
+	      <h1>WELCOME</h1>
+	      <div style="height: 300px; background-color: white; 
+	    	opacity: 0.8; border-radius:8px; padding: 20px">
+		   <p>Hi There, hope you are having a good time!!!...The Web app that you are seeing
+		   	on your screen right now is about calssifying whether the selected image by the user is having a face wihtout a mask or with the mask.To perform classification
+		   	first select a image which contains a face with or without mask. After Selecting 
+		   	the image press the button that says "Pass the image through neural network", this
+		   	will pass the image through the neural network and the result will be obtained on the extreme right hand side of the screen, with a label stating "Face" or "Mask"
+		   	depending on the Image Passed. :)
+		</p>
+		</div>
+		
+	    </div>
+	    <div class="carousel-item">
+	      <h1>What is Actually Happening????</h1>
+	      <div style="height: 300px; background-color: white; 
+	    	opacity: 0.8; border-radius:8px; padding: 20px">
+		   <p>
+		   	The selected image is passed through a resnet34 neural network, whihc is trained to classify between the masked and non-masked faces. The Model used is a pytorch model wiht pickle format.The model is loaded when the site is opened, once the button is clicked ".predict" method is runned on the model and the prediction is obtained.
+		</p>
+		</div>
+	    </div>
+
+	  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+
+	  <ol class="carousel-indicators">
+	    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" ></li>
+	    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+	    
+	  </ol>
+
+	</div>
+
+
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+</html>
